@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "601695021551",
+    "firebase_url": "https://proyecto1-8584e.firebaseio.com",
+    "project_id": "proyecto1-8584e",
+    "storage_bucket": "proyecto1-8584e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601695021551:android:6d223633e311b157",
+        "android_client_info": {
+          "package_name": "com.example.gonzaloe.login_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601695021551-17lnpbvvrrtmbr2r08d5si7ks7c9r3u1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gonzaloe.login_app",
+            "certificate_hash": "c16605cf1cc994e88c502c99b16cccf04c00ad46"
+          }
+        },
+        {
+          "client_id": "601695021551-css8k57fooqbuv8rna4kr17h759ib5gc.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "601695021551-css8k57fooqbuv8rna4kr17h759ib5gc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUF2h2bcNlhJkP5JMNDDJnIvkZ0J-_Pq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601695021551-css8k57fooqbuv8rna4kr17h759ib5gc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
