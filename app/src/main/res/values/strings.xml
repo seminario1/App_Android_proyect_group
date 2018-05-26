@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Login_app</string>
+    <string-array name="tipo_de_inmueble">
+        <item>Casa</item>
+        <item>Departamento</item>
+        <item>Galpon</item>
+        <item>Habitacion</item>
+        <item> local comercial</item>
+        <item>oficina</item>
+        <item>terreno</item>
+
+
+    </string-array>
+
+    <string-array name="categoria">
+        <item>Alquiler</item>
+        <item>Anticretico</item>
+        <item>venta</item>
+
+
+    </string-array>
 </resources>
