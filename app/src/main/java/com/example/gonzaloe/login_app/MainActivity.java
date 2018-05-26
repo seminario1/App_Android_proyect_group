@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -30,6 +32,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
+    private int GOOGLE_CODE=11267;
     private EditText Name;
     private  EditText Password;
     private TextView  Info;
@@ -39,9 +42,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private String eemail2;
     private String pw;
     private Button property;
-
-
-    GoogleApiClient client;
+    private GoogleApiClient client;
     @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, options)
                 .build();
+        loadcomponents();
 
         Name = findViewById(R.id.etName);
         Password = findViewById(R.id.etPassword);
@@ -92,6 +94,42 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 Intent intent = new Intent(MainActivity.this, RegistroInmuebles.class);
                 startActivity(intent);
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==GOOGLE_CODE){
+           GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+           handleSignInResult(result);
+           //if(result.isSuccess()){
+            //   Toast.makeText(this,"ok",Toast.LENGTH_LONG).show();
+           //}else {
+           //    Toast.makeText(this,"error",Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult result) {
+        if (result.isSuccess()) {
+            Toast.makeText(this,"ok",Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(this," ",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void loadcomponents() {
+        SignInButton googlebtn = (SignInButton) this.findViewById(R.id.googlebutton);
+        googlebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(client);
+                startActivityForResult(intent,GOOGLE_CODE);
 
             }
         });
