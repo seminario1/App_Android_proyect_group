@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private Button Register;
     private String eemail2;
     private String pw;
+    private Button property;
+
 
     GoogleApiClient client;
     @TargetApi(Build.VERSION_CODES.M)
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Password = findViewById(R.id.etPassword);
         Login = findViewById(R.id.btnLogin);
         Register = findViewById(R.id.btnRegister); //button activity thirdActivity
+        property = findViewById(R.id.btnRegisterProperty);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +83,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
                 startActivity(intent);
 
+            }
+        });
 
+        property.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, RegistroInmuebles.class);
+                startActivity(intent);
 
             }
         });
