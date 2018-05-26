@@ -8,8 +8,8 @@
 
 
     <Spinner
-        android:id="@+id/spin"
-        android:layout_width="290dp"
+        android:id="@+id/spinTipoDeCasa"
+        android:layout_width="300dp"
         android:layout_height="42dp"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
@@ -23,8 +23,8 @@
         app:layout_constraintVertical_bias="0.039"></Spinner>
 
     <Spinner
-        android:id="@+id/spin2"
-        android:layout_width="292dp"
+        android:id="@+id/spinEstadoDeLaCasa"
+        android:layout_width="300dp"
         android:layout_height="42dp"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
@@ -34,77 +34,80 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin"
+        app:layout_constraintTop_toBottomOf="@+id/spinTipoDeCasa"
         app:layout_constraintVertical_bias="0.0"></Spinner>
 
     <EditText
-        android:id="@+id/editText5"
-        android:layout_width="120dp"
+        android:id="@+id/etPrecio"
+        android:layout_width="150dp"
         android:layout_height="41dp"
         android:layout_marginBottom="216dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
+        android:hint="Precio"
         android:inputType="textPersonName"
-        android:text="precio"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editText6"
+        app:layout_constraintEnd_toStartOf="@+id/etSuperficie"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView"
+        app:layout_constraintTop_toBottomOf="@+id/etDescripcion"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editText6"
-        android:layout_width="120dp"
+        android:id="@+id/etSuperficie"
+        android:layout_width="150dp"
         android:layout_height="41dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
+        android:hint="Superficie"
         android:inputType="textPersonName"
-        android:text="superficie"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintStart_toEndOf="@+id/etPrecio"
+        app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
 
     <EditText
-        android:id="@+id/editText10"
-        android:layout_width="120dp"
-        android:layout_height="35dp"
+        android:id="@+id/etAñoDeConstruccion"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Año de construccion"
         android:inputType="textPersonName"
-        android:text="año_de_contruccion"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/editText11"
+        app:layout_constraintEnd_toStartOf="@+id/etBaños"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etPrecio"
+        app:layout_constraintVertical_bias="0.052" />
 
     <EditText
-        android:id="@+id/editText11"
-        android:layout_width="120dp"
-        android:layout_height="34dp"
+        android:id="@+id/etBaños"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="44dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="N° de Baños"
         android:inputType="textPersonName"
-        android:text="cant_baños"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText6"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintStart_toEndOf="@+id/etAñoDeConstruccion"
+        app:layout_constraintTop_toBottomOf="@+id/etSuperficie"
+        app:layout_constraintVertical_bias="0.046" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="292dp"
+        android:id="@+id/btnEmviarRegistro"
+        android:layout_width="300dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -113,22 +116,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView"
-        android:layout_width="292dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="276dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/etDescripcion"
+        android:layout_width="300dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
         android:hint="Descripcion del inmuebles"
-        android:textAlignment="viewStart"
+        android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spin2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinEstadoDeLaCasa"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </android.support.constraint.ConstraintLayout>
