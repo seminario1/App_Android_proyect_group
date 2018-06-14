@@ -19,4 +19,5 @@
 
 
     </string-array>
+    <string name="title_activity_main_list_inmuebles">MainListInmueblesActivity</string>
 </resources>

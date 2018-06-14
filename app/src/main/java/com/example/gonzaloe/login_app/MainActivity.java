@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Register = findViewById(R.id.btnRegister); //button activity thirdActivity
         property = findViewById(R.id.btnRegisterProperty);
 
+        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
+        startActivity(intent);
+
+
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void loadInitialRestData(String email, String pass) {
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.1.3:4030/login/"+email+"="+pass, new JsonHttpResponseHandler(){
+        client.get("http://192.168.1.3:4030/api/v1.0/login/"+email+"="+pass, new JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
