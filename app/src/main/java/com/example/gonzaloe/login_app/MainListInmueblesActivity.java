@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.gonzaloe.login_app.Host.host;
 import com.example.gonzaloe.login_app.ItemMenu.ItemMenuStructure;
 import com.example.gonzaloe.login_app.ItemMenu.MenuBaseAdapter;
 import com.loopj.android.http.AsyncHttpClient;
@@ -33,6 +34,11 @@ public class MainListInmueblesActivity extends AppCompatActivity {
     private ArrayList<ItemMenuStructure> LISTINFO;
     private Context root;
     private MenuBaseAdapter ADAPTER;
+
+    //HOST
+    private  host HOST = new host();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,7 +70,7 @@ public class MainListInmueblesActivity extends AppCompatActivity {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String url="http://192.168.1.5:4030/api/v1.0/home2/search="+keysrt;
+        String url=HOST.getIp()+":4030/api/v1.0/home2/search="+keysrt;
 
 
         //Toast.makeText(MainActivity.this, srt, Toast.LENGTH_SHORT).show();

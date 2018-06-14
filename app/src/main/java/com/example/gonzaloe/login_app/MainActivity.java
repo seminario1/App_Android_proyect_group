@@ -29,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import com.example.gonzaloe.login_app.Host.host;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private String pw;
     private Button property;
     private GoogleApiClient client;
+
+    //HOST
+    private host HOST = new host();
+
     @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -144,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void loadInitialRestData(String email, String pass) {
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.1.3:4030/api/v1.0/login/"+email+"="+pass, new JsonHttpResponseHandler(){
+        client.get(HOST.getIp()+":4030/api/v1.0/login/"+email+"="+pass, new JsonHttpResponseHandler(){
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

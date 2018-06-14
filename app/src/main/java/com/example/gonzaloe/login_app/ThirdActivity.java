@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gonzaloe.login_app.Host.host;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -29,6 +30,9 @@ public class ThirdActivity extends AppCompatActivity {
     private Button Register;
 
     private int confir=0;
+
+    //HOST
+    private host HOST =new host();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,13 +89,15 @@ public class ThirdActivity extends AppCompatActivity {
 
 
             AsyncHttpClient Client = new AsyncHttpClient();
-            Client.post("http://192.168.1.3:4030/registro", params, new JsonHttpResponseHandler() {
+            Client.post(HOST.getIp()+":4030/api/v1.0/registro", params, new JsonHttpResponseHandler() {
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     try {
 
+                        Toast.makeText(getApplicationContext(),"Registro realizado", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), response.getString("name"), Toast.LENGTH_SHORT).show();
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
