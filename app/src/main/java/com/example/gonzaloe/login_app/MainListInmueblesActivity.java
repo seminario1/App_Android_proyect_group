@@ -1,6 +1,7 @@
 package com.example.gonzaloe.login_app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,7 +30,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MainListInmueblesActivity extends AppCompatActivity {
+public class MainListInmueblesActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private ListView LIST;
     private ArrayList<ItemMenuStructure> LISTINFO;
@@ -97,16 +99,16 @@ public class MainListInmueblesActivity extends AppCompatActivity {
                         String calle = obj.getString("street");
                         String descripcion = obj.getString("descripcion");
                         String precio = obj.getString("price");
-                        String latitud = obj.getString("lat");
-                        String longitud = obj.getString("lon");
+                        double latitud = obj.getDouble("lat");
+                        double longitud = obj.getDouble("lon");
                         String vecindario = obj.getString("neighborhood");
-
                         String contcto = obj.getString("contact");
 
                         Toast.makeText(MainListInmueblesActivity.this, vecindario, Toast.LENGTH_SHORT).show();
 
 
-                        ItemMenuStructure item = new ItemMenuStructure(url,ciudad,estado,precio);
+                        ItemMenuStructure item = new ItemMenuStructure(url, id, ciudad, estado, cuartos, baños, superfiie, antiguedad, calle,
+                                descripcion, precio, latitud, longitud, vecindario, contcto);
 
                         LISTINFO.add(item);
                     }
@@ -134,6 +136,10 @@ public class MainListInmueblesActivity extends AppCompatActivity {
 
         EditText search = (EditText)this.findViewById(R.id.searchHome);
 
+
+        //evento que scucha los clic en los listviw
+        LIST.setOnItemClickListener(this);
+
         //evesntos_________
         search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -156,4 +162,14 @@ public class MainListInmueblesActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String idhome = this.LISTINFO.get(position).getId();
+        Intent intent = new Intent(this,DetalleListInmuebles.class);
+        intent.putExtra("idcasa2",idhome);
+        startActivity(intent);
+
+        Toast.makeText(getApplicationContext(),idhome,Toast.LENGTH_SHORT).show();
+
+    }
 }
