@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.gonzaloe.login_app.DetalleListInmuebles;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
