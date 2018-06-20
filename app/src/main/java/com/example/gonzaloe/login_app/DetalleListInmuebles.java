@@ -109,7 +109,7 @@ public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCom
 
     private void setInformtion(){
 
-        this.foto.setImageBitmap(DATA.getImg());
+        //this.foto.setImageBitmap(DATA.getImg());
         this.city.setText(DATA.getCiudad());
         this.estado.setText(DATA.getEstado());
         this.cuartos.setText(DATA.getCuartos());
@@ -122,9 +122,9 @@ public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCom
         this.neighborhood.setText(DATA.getNeighborhood());
 
 //
-//        LoaderImg imgLoad  = new LoaderImg();
-//        imgLoad.execute(DATA.getUrlimg());
-//        imgLoad.setOnloadCompleteImg(this.foto, this);
+        LoaderImg imgLoad  = new LoaderImg();
+          imgLoad.execute(DATA.getUrlimg());
+          imgLoad.setOnloadCompleteImg(this.foto, 0,this);
 
     }
 
