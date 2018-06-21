@@ -21,4 +21,11 @@
     </string-array>
     <string name="title_activity_main_list_inmuebles">MainListInmueblesActivity</string>
     <string name="title_activity_detalle_list_inmuebles">DetalleListInmuebles</string>
+    <string name="title_activity_main_tabbets_homes">MainTabbetsHomes</string>
+    <string name="tab_text_1">Casas</string>
+    <string name="tab_text_2">Mapa</string>
+    <string name="tab_text_3">Busqueda</string>
+    <string name="tab_text_4">Registros</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

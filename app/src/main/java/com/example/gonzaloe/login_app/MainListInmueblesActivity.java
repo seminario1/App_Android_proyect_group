@@ -48,6 +48,8 @@ public class MainListInmueblesActivity extends AppCompatActivity implements Adap
         StrictMode.setThreadPolicy(policy);
         root = this;
 
+
+
         LISTINFO = new ArrayList<ItemMenuStructure>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_list_inmuebles);
@@ -63,16 +65,16 @@ public class MainListInmueblesActivity extends AppCompatActivity implements Adap
             }
         });
 
-        //loadData();
-        loadComponents();
+        loadData();
+       loadComponents();
     }
 
 
-    private void loadData(String keysrt) {
+    private void loadData() {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String url=HOST.getIp()+":4030/api/v1.0/home2/search="+keysrt;
+        String url=HOST.getIp()+":4030/api/v1.0/home";
 
 
         //Toast.makeText(MainActivity.this, srt, Toast.LENGTH_SHORT).show();
@@ -150,7 +152,7 @@ public class MainListInmueblesActivity extends AppCompatActivity implements Adap
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String str = charSequence.toString();
-                loadData(str);
+                loadData();
             }
 
             @Override

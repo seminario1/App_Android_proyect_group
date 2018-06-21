@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".SecondActivity" />
         <activity android:name=".ThirdActivity" />
@@ -29,7 +31,14 @@
         <activity
             android:name=".DetalleListInmuebles"
             android:label="@string/title_activity_detalle_list_inmuebles"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainTabbetsHomes"
+            android:label="@string/title_activity_main_tabbets_homes"
+            android:theme="@style/AppTheme.NoActionBar">
+            //
+
+        </activity>
     </application>
 
 </manifest>

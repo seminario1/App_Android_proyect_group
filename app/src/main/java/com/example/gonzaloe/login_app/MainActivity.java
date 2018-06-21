@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Register = findViewById(R.id.btnRegister); //button activity thirdActivity
         property = findViewById(R.id.btnRegisterProperty);
 
-        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
-        startActivity(intent);
+//        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
+//        startActivity(intent);
 
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             Toast.makeText(this,"ok",Toast.LENGTH_LONG).show();
 
         } else {
-            Toast.makeText(this," ",Toast.LENGTH_LONG).show();
+            Toast.makeText(this," Binvenido",Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(MainActivity.this, MainListInmueblesActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -164,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                         Toast.makeText(getApplicationContext(),"Welcome", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                            Intent intent = new Intent(MainActivity.this, MainListInmueblesActivity.class);
                             startActivity(intent);
                             break;
 
