@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="juan@gmail.com"
         android:inputType="textPersonName"
@@ -25,45 +25,40 @@
         android:id="@+id/etPassword"
         android:layout_width="310dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="315dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="2dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="310dp"
-        android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/googlebutton"
+        android:layout_marginTop="32dp"
+        android:drawableLeft="?android:attr/fingerprintAuthDrawable"
+        android:text="Iniciar Sesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <Button
         android:id="@+id/btnRegisterProperty"
         android:layout_width="315dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="56dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
         android:background="@android:color/holo_blue_light"
+        android:drawableLeft="@android:drawable/ic_menu_mapmode"
         android:text="Registrar Propiedad"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
@@ -75,8 +70,9 @@
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:text="Register"
+        android:layout_marginTop="3dp"
+        android:drawableLeft="@android:drawable/ic_menu_edit"
+        android:text="Registrarse"
         app:layout_constraintBottom_toTopOf="@+id/btnRegisterProperty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -99,5 +95,36 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogin">
 
     </com.google.android.gms.common.SignInButton>
+
+    <Button
+        android:id="@+id/buttonVerAnuncios"
+        android:layout_width="154dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
+
+        android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+        android:text="Ver Anuncios"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBuscarInmuebles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterProperty" />
+
+    <Button
+        android:id="@+id/buttonBuscarInmuebles"
+        android:layout_width="154dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:drawableEnd="@android:drawable/ic_search_category_default"
+        android:text="Buscar Inmuebles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonVerAnuncios"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterProperty" />
 
 </android.support.constraint.ConstraintLayout>
