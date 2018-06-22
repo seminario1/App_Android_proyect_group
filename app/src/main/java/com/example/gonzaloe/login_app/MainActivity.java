@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private Button property;
     private GoogleApiClient client;
 
+    private Button verAuncios;
+    private Button Binmuebles;
+
     //HOST
     private host HOST = new host();
 
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         Login = findViewById(R.id.btnLogin);
         Register = findViewById(R.id.btnRegister); //button activity thirdActivity
         property = findViewById(R.id.btnRegisterProperty);
+        verAuncios = findViewById(R.id.buttonVerAnuncios);
+        Binmuebles =findViewById(R.id.buttonBuscarInmuebles);
+
+
+
 
 //        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
 //        startActivity(intent);
@@ -82,6 +90,22 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 //        Intent intent = new Intent(MainActivity.this, MainTabbetsHomes.class);
 //        startActivity(intent);
 
+
+        verAuncios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(MainActivity.this, MainTabbetsHomes.class);
+                startActivity(intent);
+            }
+        });
+
+        Binmuebles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainListInmueblesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
