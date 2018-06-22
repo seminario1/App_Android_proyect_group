@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 //        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
 //        startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        startActivity(intent);
 
 
         Login.setOnClickListener(new View.OnClickListener() {
