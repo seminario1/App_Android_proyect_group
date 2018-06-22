@@ -12,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.gonzaloe.login_app.DATA.DataApp;
 import com.example.gonzaloe.login_app.ItemMenu.ItemMenuStructure;
 import com.example.gonzaloe.login_app.ItemMenu.MenuBaseAdapter;
+import com.example.gonzaloe.login_app.Utils.OnLoadDataComplete;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -27,24 +29,29 @@ import cz.msebera.android.httpclient.Header;
 import com.example.gonzaloe.login_app.Host.host;
 public class ListFragment extends Fragment {
 
-    private ArrayList<ItemMenuStructure> LISTINFO;
+   // private ArrayList<ItemMenuStructure> LISTINFO;
     private ListView LIST;
     private MainActivity ADAPTER;
     private View ROOT;
-
+    private OnLoadDataComplete event;
     private host HOST = new host();
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
-        LISTINFO = new ArrayList<ItemMenuStructure>();
+        DataApp.LISTDATA = new ArrayList<ItemMenuStructure>();
 
 
         //cragando el fragment
         ROOT = inflater.inflate(R.layout.lista_fragment,container,false);
         loadData();
         return ROOT;
+
+    }
+
+    public void setOnLoadCompleteData(OnLoadDataComplete event){
+        this.event = event;
 
     }
     private void loadData() {
@@ -89,7 +96,7 @@ public class ListFragment extends Fragment {
                         ItemMenuStructure item = new ItemMenuStructure(url, id, ciudad, estado, cuartos, baños, superfiie, antiguedad, calle,
                                 descripcion, precio, latitud, longitud, vecindario, contcto);
 
-                        LISTINFO.add(item);
+                        DataApp.LISTDATA.add(item);
                     }
 
                     loadComponets();
@@ -106,9 +113,9 @@ public class ListFragment extends Fragment {
     }
     private void loadComponets() {
         ListView list = (ListView) ROOT.findViewById(R.id.superList);
-        MenuBaseAdapter adapter = new MenuBaseAdapter(this.getActivity(),LISTINFO);
+        MenuBaseAdapter adapter = new MenuBaseAdapter(this.getActivity(),DataApp.LISTDATA);
         list.setAdapter(adapter);
-
+        this.event.OnLoadCompleteDataResult();
 
     }
 

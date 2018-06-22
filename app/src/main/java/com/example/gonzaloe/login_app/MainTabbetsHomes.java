@@ -19,6 +19,10 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.example.gonzaloe.login_app.Utils.OnLoadDataComplete;
+
+import java.util.List;
+
 public class MainTabbetsHomes extends AppCompatActivity {
 
     /**
@@ -95,8 +99,9 @@ public class MainTabbetsHomes extends AppCompatActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public class SectionsPagerAdapter extends FragmentPagerAdapter implements OnLoadDataComplete{
 
+        private MapsFragment maps;
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -106,10 +111,15 @@ public class MainTabbetsHomes extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             //return PlaceholderFragment.newInstance(position + 1);
+            ListFragment lista = new ListFragment();
+            lista.setOnLoadCompleteData(this);
+             maps = new MapsFragment();
+
+
             if (position == 0){
-                return new ListFragment();
+                return lista;
             }if (position == 1){
-                return new ListFragment();
+                return  maps;
             }
             return new ListFragment();
         }
@@ -118,6 +128,11 @@ public class MainTabbetsHomes extends AppCompatActivity {
         public int getCount() {
             // Show 3 total pages.
             return 2;
+        }
+
+        @Override
+        public void OnLoadCompleteDataResult() {
+            maps.setListFragment();
         }
     }
 }

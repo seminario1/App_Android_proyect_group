@@ -75,7 +75,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 //        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
 //        startActivity(intent);
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+
+//        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+//        startActivity(intent);
+
+        Intent intent = new Intent(MainActivity.this, MainTabbetsHomes.class);
         startActivity(intent);
 
 
@@ -132,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         } else {
             Toast.makeText(this," Binvenido",Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(MainActivity.this, MainListInmueblesActivity.class);
+            Intent intent = new Intent(MainActivity.this, MainTabbetsHomes.class);
             startActivity(intent);
         }
     }
