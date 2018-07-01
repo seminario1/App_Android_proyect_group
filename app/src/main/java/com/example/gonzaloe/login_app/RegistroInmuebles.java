@@ -32,6 +32,9 @@ public class RegistroInmuebles extends AppCompatActivity {
     private Spinner Citys;
     private Spinner Types;
     private Spinner Estades;
+    private String city;
+    private String estade;
+    private String type;
     private Button EnviarRegistro;
     private EditText neighborhood;
     private EditText street;
@@ -45,7 +48,6 @@ public class RegistroInmuebles extends AppCompatActivity {
     private Context root;
     private int confir=0;
 
-    //HOST
     private host HOST =new host();
 
     @Override
@@ -56,6 +58,14 @@ public class RegistroInmuebles extends AppCompatActivity {
         Citys=findViewById(R.id.spinCiudad);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(root, R.array.Ciudad,android.R.layout.simple_spinner_item);
         Citys.setAdapter(adapter);
+        Citys.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                city=  parent.getItemAtPosition(position).toString(); }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         Types=findViewById(R.id.spinTipoDeCasa);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(root, R.array.tipo,android.R.layout.simple_spinner_item);
@@ -69,12 +79,10 @@ public class RegistroInmuebles extends AppCompatActivity {
         Estades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                estade=  parent.getItemAtPosition(position).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -95,7 +103,7 @@ public class RegistroInmuebles extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                sendDataRegister(
+                sendDataRegister(city,estade,
                         neighborhood.getText().toString(),
                         street.getText().toString(),
                         rooms.getText().toString(),
@@ -107,6 +115,8 @@ public class RegistroInmuebles extends AppCompatActivity {
                         description.getText().toString());
 
                 if(confir==1) {
+                    city="";
+                    estade="";
                     neighborhood.setText("");
                     street.setText("");
                     rooms.setText("");
@@ -124,10 +134,13 @@ public class RegistroInmuebles extends AppCompatActivity {
 
 
     }
-    private void sendDataRegister(final String neighborhood, String street, String rooms, String badroons, String yearConstr, String surface, String price, String contact,  String description) {
-        if(!neighborhood.isEmpty()&&!street.isEmpty()&& !rooms.isEmpty()&& !badroons.isEmpty()&& !yearConstr.isEmpty()&& !surface.isEmpty()&& !price.isEmpty()&& !contact.isEmpty()&& !description.isEmpty()) {
+    private void sendDataRegister(String city,String estade, String neighborhood, String street, String rooms, String badroons, String yearConstr, String surface, String price, String contact,  String description) {
+        if(!city.isEmpty()&&!estade.isEmpty()&&!neighborhood.isEmpty()&&!street.isEmpty()&& !rooms.isEmpty()&& !badroons.isEmpty()&& !yearConstr.isEmpty()&& !surface.isEmpty()&& !price.isEmpty()&& !contact.isEmpty()&& !description.isEmpty()) {
             confir=1;
             RequestParams params = new RequestParams();
+            params.put("city", city);
+            params.put("estado", estade);
+            // params.put("tipo", type);
             params.put("neighborhood", neighborhood);
             params.put("street", street);
             params.put("cuartos", rooms);
