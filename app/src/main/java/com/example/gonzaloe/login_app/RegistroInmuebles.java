@@ -157,7 +157,9 @@ public class RegistroInmuebles extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     try {
 
-                        Toast.makeText(getApplicationContext(), response.getString("price"), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(root, LoadImgInmuebles.class);
+                        root.startActivity(intent);
+                        Toast.makeText(getApplicationContext(), response.getString("estado"), Toast.LENGTH_SHORT).show();
 
 
                     } catch (JSONException e) {
