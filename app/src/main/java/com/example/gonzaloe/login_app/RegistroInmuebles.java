@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gonzaloe.login_app.DATA.UserData;
 import com.example.gonzaloe.login_app.Host.host;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
@@ -25,7 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
-public class RegistroInmuebles extends AppCompatActivity {
+public class
+RegistroInmuebles extends AppCompatActivity {
 
 
 
@@ -140,7 +142,7 @@ public class RegistroInmuebles extends AppCompatActivity {
             RequestParams params = new RequestParams();
             params.put("city", city);
             params.put("estado", estade);
-            // params.put("tipo", type);
+            params.put("tipo", "casa");
             params.put("neighborhood", neighborhood);
             params.put("street", street);
             params.put("cuartos", rooms);
@@ -148,6 +150,8 @@ public class RegistroInmuebles extends AppCompatActivity {
             params.put("antiguedad", yearConstr);
             params.put("superficie", surface);
             params.put("price", price);
+            params.put("lat","");
+            params.put("lon","");
             params.put("contact", contact);
             params.put("descripcion", description);
             AsyncHttpClient Client = new AsyncHttpClient();
@@ -156,6 +160,9 @@ public class RegistroInmuebles extends AppCompatActivity {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     try {
+                        String msn = response.getString("msn");
+                        String id = response.getString("id");
+                        UserData.ID = id;
 
                         Intent intent = new Intent(root, LoadImgInmuebles.class);
                         root.startActivity(intent);

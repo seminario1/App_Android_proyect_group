@@ -118,7 +118,7 @@ public class LoadImgInmuebles extends AppCompatActivity implements View.OnClickL
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
                             Toast.makeText(getApplicationContext(), "SE REGISTRO SATISFACTORIAMENTE SU ANUNCIO", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(root, MainTabbetsHomes.class);
+                            Intent intent = new Intent(root, LatLonMaps.class);
                             root.startActivity(intent);
                             Toast.makeText(getApplicationContext(), response.getString("ok"), Toast.LENGTH_SHORT).show();
 
