@@ -1,12 +1,16 @@
 package com.example.gonzaloe.login_app;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,18 +28,24 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCompleImg{
+import android.content.Intent;
+import android.net.Uri;
+
+public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCompleImg {
 
 
     public String IDhome;
     protected HomeDetalle DATA;
 
-    private  host HOST = new host();
+    private host HOST = new host();
 
-    protected TextView city, estado, cuartos, baños, superficie, antiguedad, street, descripcion, price, lat, lon, neighborhood,contct;
+    protected TextView city, estado, cuartos, baños, superficie, antiguedad, street, descripcion, price, lat, lon, neighborhood, contct;
     protected ListView lisview;
     protected ImageView foto;
     protected DetalleListInmuebles root;
+
+    private Button contactar;
+    private String ontact_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +70,25 @@ public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCom
                         .setAction("Action", null).show();
             }
         });
+
+//        contactar.findViewById(R.id.bottonContact);
+//
+//        contactar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:+ 5959614580005"));
+//                if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CALL_PHONE) !=
+//                        PackageManager.PERMISSION_GRANTED) {
+//                }
+//                startActivity(intent);
+//            }
+//        });
     }
 
-    private void LoadAsyncData() {
 
+
+
+    private void LoadAsyncData() {
 
         AsyncHttpClient client2 = new AsyncHttpClient();
         String url = HOST.getIp()+":4030/api/v1.0/homeid/"+this.IDhome;
@@ -91,6 +116,8 @@ public class DetalleListInmuebles extends AppCompatActivity implements OnLoadCom
                     double lon = response.getDouble("lon");
                     String neighborhood = response.getString("neighborhood");
                     String contact = response.getString("contact");
+
+
 
                    DATA = new HomeDetalle(urlimg, city, estado, cuartos, baños, superficie, antiguedad, street,
                            descripcion, price, lat, lon, neighborhood, contact);

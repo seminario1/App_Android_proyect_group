@@ -2,9 +2,12 @@ package com.example.gonzaloe.login_app;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     //HOST
     private host HOST = new host();
 
+
     @TargetApi(Build.VERSION_CODES.M)
     @RequiresApi(api = Build.VERSION_CODES.M)
 
@@ -81,14 +85,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
 
 
-//        Intent intent =new Intent(MainActivity.this, MainListInmueblesActivity.class);
-//        startActivity(intent);
 
-//        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-//        startActivity(intent);
 
-//        Intent intent = new Intent(MainActivity.this, MainTabbetsHomes.class);
-//        startActivity(intent);
+
+
+
 
 
         verAuncios.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +137,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
             }
         });
+
+
+   //call
 
     }
 
