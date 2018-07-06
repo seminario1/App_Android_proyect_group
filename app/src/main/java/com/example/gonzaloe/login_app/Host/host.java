@@ -7,6 +7,8 @@ public class host {
 
     public String ip="http://192.168.1.6";
 
+
+
     public String getIp() {
         return this.ip;
     }

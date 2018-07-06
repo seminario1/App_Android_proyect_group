@@ -97,6 +97,8 @@ public class ThirdActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(),"Registro realizado", Toast.LENGTH_SHORT).show();
                         Toast.makeText(getApplicationContext(), response.getString("name"), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ThirdActivity.this,MainTabbetsHomes.class);
+                        startActivity(intent);
 
 
                     } catch (JSONException e) {

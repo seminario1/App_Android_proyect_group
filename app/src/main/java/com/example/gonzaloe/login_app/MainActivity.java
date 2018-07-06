@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
-            Toast.makeText(this,"ok",Toast.LENGTH_LONG).show();
+            CheckInformation();
 
         } else {
             Toast.makeText(this," Binvenido",Toast.LENGTH_LONG).show();
@@ -168,7 +168,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             startActivity(intent);
         }
     }
+    private void CheckInformation(){
+        Intent intent= new Intent(this, CheckInformation.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
 
+    }
     private void loadcomponents() {
         SignInButton googlebtn = (SignInButton) this.findViewById(R.id.googlebutton);
         googlebtn.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                         Toast.makeText(getApplicationContext(),"Welcome", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(MainActivity.this, MainListInmueblesActivity.class);
+                            Intent intent = new Intent(MainActivity.this, MainTabbetsHomes.class);
                             startActivity(intent);
                             break;
 

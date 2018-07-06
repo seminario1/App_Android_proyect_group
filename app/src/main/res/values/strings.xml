@@ -1,24 +1,31 @@
 <resources>
     <string name="app_name">Login_app</string>
-    <string-array name="tipo_de_inmueble">
+
+    <string-array name="Ciudad">
+        <item>Beni</item>
+        <item>Cochabamba</item>
+        <item>La Paz</item>
+        <item>Oruro</item>
+        <item>Pando</item>
+        <item>Potosi</item>
+        <item>Santa Cruz</item>
+        <item>Sucre</item>
+        <item>Tarija</item>
+    </string-array>
+
+    <string-array name="tipo">
         <item>Casa</item>
         <item>Departamento</item>
-        <item>Galpon</item>
-        <item>Habitacion</item>
-        <item> local comercial</item>
-        <item>oficina</item>
-        <item>terreno</item>
-
-
+        <item>Condominio</item>
+        <item>Terreno</item>
     </string-array>
 
-    <string-array name="categoria">
-        <item>Alquiler</item>
+    <string-array name="estado">
+        <item>Venta</item>
         <item>Anticretico</item>
-        <item>venta</item>
-
-
+        <item>Alquiler</item>
     </string-array>
+
     <string name="title_activity_main_list_inmuebles">MainListInmueblesActivity</string>
     <string name="title_activity_detalle_list_inmuebles">DetalleListInmuebles</string>
     <string name="title_activity_main_tabbets_homes">MainTabbetsHomes</string>
@@ -29,4 +36,6 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_lat_lon_map_form">Map</string>
+    <string name="title_activity_lat_lon_maps">Map</string>
 </resources>

@@ -65,16 +65,16 @@ public class MainListInmueblesActivity extends AppCompatActivity implements Adap
             }
         });
 
-        loadData();
+        //loadData();
        loadComponents();
     }
 
 
-    private void loadData() {
+    private void loadData(String key) {
 
         AsyncHttpClient client = new AsyncHttpClient();
 
-        String url=HOST.getIp()+":4030/api/v1.0/home";
+        String url=HOST.getIp()+":4030/api/v1.0/home/?search="+key;
 
 
         //Toast.makeText(MainActivity.this, srt, Toast.LENGTH_SHORT).show();
@@ -152,8 +152,9 @@ public class MainListInmueblesActivity extends AppCompatActivity implements Adap
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String str = charSequence.toString();
-                loadData();
+                loadData(str);
             }
+            
 
             @Override
             public void afterTextChanged(Editable editable) {
